@@ -18,8 +18,7 @@ use Ramsey\Collection\Test\Mock\Foo;
  */
 class SetTest extends PhpUnitTestCase
 {
-    /** @var Set */
-    private $set;
+    private Set $set;
 
     protected function setUp(): void
     {

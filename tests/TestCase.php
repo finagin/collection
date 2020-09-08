@@ -6,12 +6,14 @@ namespace Ramsey\Collection\Test;
 
 use Faker\Factory;
 use Faker\Generator;
-use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
+use Ramsey\Dev\Tools\TestCase as RamseyTestCase;
 
-class TestCase extends MockeryTestCase
+class TestCase extends RamseyTestCase
 {
-    /** @var Generator */
-    protected $faker;
+    use ProphecyTrait;
+
+    protected Generator $faker;
 
     protected function setUp(): void
     {

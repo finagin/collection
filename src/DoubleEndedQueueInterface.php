@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace Ramsey\Collection;
 
-use Ramsey\Collection\Exception\NoSuchElementException;
-
 /**
  * A linear collection that supports element insertion and removal at both ends.
  *
@@ -171,11 +169,6 @@ interface DoubleEndedQueueInterface extends QueueInterface
      * @param mixed $element The element to add to the front of this queue.
      *
      * @return bool `true` if this queue changed as a result of the call.
-     *
-     * @throws \RuntimeException if a queue refuses to add a particular element
-     *     for any reason other than that it already contains the element.
-     *     Implementations should use a more-specific exception that extends
-     *     `\RuntimeException`.
      */
     public function addFirst($element): bool;
 
@@ -191,11 +184,6 @@ interface DoubleEndedQueueInterface extends QueueInterface
      * @param mixed $element The element to add to the end of this queue.
      *
      * @return bool `true` if this queue changed as a result of the call.
-     *
-     * @throws \RuntimeException if a queue refuses to add a particular element
-     *     for any reason other than that it already contains the element.
-     *     Implementations should use a more-specific exception that extends
-     *     `\RuntimeException`.
      */
     public function addLast($element): bool;
 
@@ -234,8 +222,6 @@ interface DoubleEndedQueueInterface extends QueueInterface
      * exception if this queue is empty.
      *
      * @return mixed the first element in this queue.
-     *
-     * @throws NoSuchElementException if this queue is empty.
      */
     public function removeFirst();
 
@@ -246,8 +232,6 @@ interface DoubleEndedQueueInterface extends QueueInterface
      * if this queue is empty.
      *
      * @return mixed the last element in this queue.
-     *
-     * @throws NoSuchElementException if this queue is empty.
      */
     public function removeLast();
 
@@ -274,8 +258,6 @@ interface DoubleEndedQueueInterface extends QueueInterface
      * exception if this queue is empty.
      *
      * @return mixed the head of this queue.
-     *
-     * @throws NoSuchElementException if this queue is empty.
      */
     public function firstElement();
 
@@ -286,8 +268,6 @@ interface DoubleEndedQueueInterface extends QueueInterface
      * if this queue is empty.
      *
      * @return mixed the tail of this queue.
-     *
-     * @throws NoSuchElementException if this queue is empty.
      */
     public function lastElement();
 

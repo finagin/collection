@@ -38,20 +38,13 @@ namespace Ramsey\Collection;
 class Set extends AbstractSet
 {
     /**
-     * The type of elements stored in this set
-     *
      * A set's type is immutable. For this reason, this property is private.
-     *
-     * @var string
      */
-    private $setType;
+    private string $setType;
 
     /**
-     * Constructs a set object of the specified type, optionally with the
-     * specified data.
-     *
      * @param string $setType The type (FQCN) associated with this set.
-     * @param mixed[] $data The initial items to store in the set.
+     * @param array<array-key, mixed> $data The initial items to store in the set.
      */
     public function __construct(string $setType, array $data = [])
     {
@@ -59,9 +52,6 @@ class Set extends AbstractSet
         parent::__construct($data);
     }
 
-    /**
-     * Returns the type associated with this set.
-     */
     public function getType(): string
     {
         return $this->setType;

@@ -26,7 +26,7 @@ interface MapInterface extends ArrayInterface
     /**
      * Returns `true` if this map contains a mapping for the specified key.
      *
-     * @param mixed $key The key to check in the map.
+     * @param array-key $key The key to check in the map.
      */
     public function containsKey($key): bool;
 
@@ -42,7 +42,7 @@ interface MapInterface extends ArrayInterface
     /**
      * Return an array of the keys contained in this map.
      *
-     * @return mixed[]
+     * @return array<array-key>
      */
     public function keys(): array;
 
@@ -51,8 +51,8 @@ interface MapInterface extends ArrayInterface
      * map contains no mapping for the key, or (optionally) `$defaultValue` if
      * this map contains no mapping for the key.
      *
-     * @param mixed $key The key to return from the map.
-     * @param mixed $defaultValue The default value to use if `$key` is not found.
+     * @param array-key $key The key to return from the map.
+     * @param mixed|null $defaultValue The default value to use if `$key` is not found.
      *
      * @return mixed|null the value or `null` if the key could not be found.
      */
@@ -64,7 +64,7 @@ interface MapInterface extends ArrayInterface
      * If the map previously contained a mapping for the key, the old value is
      * replaced by the specified value.
      *
-     * @param mixed $key The key to put or replace in the map.
+     * @param array-key $key The key to put or replace in the map.
      * @param mixed $value The value to store at `$key`.
      *
      * @return mixed|null the previous value associated with key, or `null` if
@@ -79,7 +79,7 @@ interface MapInterface extends ArrayInterface
      * If there is already a value associated with `$key`, this returns that
      * value without replacing it.
      *
-     * @param mixed $key The key to put in the map.
+     * @param array-key $key The key to put in the map.
      * @param mixed $value The value to store at `$key`.
      *
      * @return mixed|null the previous value associated with key, or `null` if
@@ -90,7 +90,7 @@ interface MapInterface extends ArrayInterface
     /**
      * Removes the mapping for a key from this map if it is present.
      *
-     * @param mixed $key The key to remove from the map.
+     * @param array-key $key The key to remove from the map.
      *
      * @return mixed|null the previous value associated with key, or `null` if
      *     there was no mapping for `$key`.
@@ -103,7 +103,7 @@ interface MapInterface extends ArrayInterface
      *
      * This performs a strict type check on the value.
      *
-     * @param mixed $key The key to remove from the map.
+     * @param array-key $key The key to remove from the map.
      * @param mixed $value The value to match.
      *
      * @return bool true if the value was removed.
@@ -114,7 +114,7 @@ interface MapInterface extends ArrayInterface
      * Replaces the entry for the specified key only if it is currently mapped
      * to some value.
      *
-     * @param mixed $key The key to replace.
+     * @param array-key $key The key to replace.
      * @param mixed $value The value to set at `$key`.
      *
      * @return mixed|null the previous value associated with key, or `null` if
@@ -128,7 +128,7 @@ interface MapInterface extends ArrayInterface
      *
      * This performs a strict type check on the value.
      *
-     * @param mixed $key The key to remove from the map.
+     * @param array-key $key The key to remove from the map.
      * @param mixed $oldValue The value to match.
      * @param mixed $newValue The value to use as a replacement.
      *

@@ -92,7 +92,7 @@ class TypedMap extends AbstractTypedMap
      *
      * @var string data type of the map key.
      */
-    private $keyType;
+    private string $keyType;
 
     /**
      * The data type of values stored in this collection.
@@ -102,7 +102,7 @@ class TypedMap extends AbstractTypedMap
      *
      * @var string data type of the map value.
      */
-    private $valueType;
+    private string $valueType;
 
     /**
      * Constructs a map object of the specified key and value types,

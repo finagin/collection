@@ -108,9 +108,7 @@ class CollectionManipulationTest extends TestCase
         $bar2 = new Bar(2, 'b');
         $barCollection = new BarCollection([$bar1, $bar2]);
 
-        $filteredCollection = $barCollection->filter(function ($item) {
-            return $item->name === 'a';
-        });
+        $filteredCollection = $barCollection->filter(fn ($item) => $item->name === 'a');
 
         $this->assertNotSame($barCollection, $filteredCollection);
         $this->assertEquals([$bar1], $filteredCollection->toArray());
@@ -222,7 +220,7 @@ class CollectionManipulationTest extends TestCase
 
         $this->expectException(CollectionMismatchException::class);
         $this->expectExceptionMessage(
-            'Collection items must be of type int'
+            'Collection items must be of type int',
         );
 
         $barCollection->diff($fooCollection);
@@ -287,7 +285,7 @@ class CollectionManipulationTest extends TestCase
 
         $this->expectException(CollectionMismatchException::class);
         $this->expectExceptionMessage(
-            'Collection items must be of type int'
+            'Collection items must be of type int',
         );
 
         $barCollection->intersect($fooCollection);
@@ -312,7 +310,7 @@ class CollectionManipulationTest extends TestCase
 
         $this->expectException(CollectionMismatchException::class);
         $this->expectExceptionMessage(
-            'Collection with index 1 must be of type Ramsey\Collection\Test\Mock\BarCollection'
+            'Collection with index 1 must be of type Ramsey\Collection\Test\Mock\BarCollection',
         );
 
         $barCollection->merge(new BarCollection(), new FooCollection());
@@ -345,7 +343,7 @@ class CollectionManipulationTest extends TestCase
 
         $this->expectException(CollectionMismatchException::class);
         $this->expectExceptionMessage(
-            'Collection items in collection with index 1 must be of type int'
+            'Collection items in collection with index 1 must be of type int',
         );
 
         $barCollection->merge($barCollection, $fooCollection);

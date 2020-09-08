@@ -83,7 +83,7 @@ trait ValueToStringTrait
             return $value->format('c');
         }
 
-        // unknown type
-        return '(' . get_class($value) . ' Object)';
+        // object
+        return '(' . get_class((object) $value) . ' Object)';
     }
 }

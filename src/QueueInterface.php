@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace Ramsey\Collection;
 
-use Ramsey\Collection\Exception\NoSuchElementException;
-
 /**
  * A queue is a collection in which the entities in the collection are kept in
  * order.
@@ -119,11 +117,6 @@ interface QueueInterface extends ArrayInterface
      * @param mixed $element The element to add to this queue.
      *
      * @return bool `true` if this queue changed as a result of the call.
-     *
-     * @throws \RuntimeException if a queue refuses to add a particular element
-     *     for any reason other than that it already contains the element.
-     *     Implementations should use a more-specific exception that extends
-     *     `\RuntimeException`.
      */
     public function add($element): bool;
 
@@ -136,8 +129,6 @@ interface QueueInterface extends ArrayInterface
      * @see self::peek()
      *
      * @return mixed the head of this queue.
-     *
-     * @throws NoSuchElementException if this queue is empty.
      */
     public function element();
 
@@ -186,8 +177,6 @@ interface QueueInterface extends ArrayInterface
      * @see self::poll()
      *
      * @return mixed the head of this queue.
-     *
-     * @throws NoSuchElementException if this queue is empty.
      */
     public function remove();
 

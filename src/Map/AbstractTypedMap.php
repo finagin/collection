@@ -28,27 +28,21 @@ abstract class AbstractTypedMap extends AbstractMap implements TypedMapInterface
     use ValueToStringTrait;
 
     /**
-     * Sets the given value to the given offset in the map.
-     *
-     * @param mixed $offset The offset to set.
-     * @param mixed $value The value to set at the given offset.
-     *
-     * @throws InvalidArgumentException if the offset or value do not match the
-     *     expected types.
+     * @inheritDoc
      */
     public function offsetSet($offset, $value): void
     {
         if ($this->checkType($this->getKeyType(), $offset) === false) {
             throw new InvalidArgumentException(
                 'Key must be of type ' . $this->getKeyType() . '; key is '
-                . $this->toolValueToString($offset)
+                . $this->toolValueToString($offset),
             );
         }
 
         if ($this->checkType($this->getValueType(), $value) === false) {
             throw new InvalidArgumentException(
                 'Value must be of type ' . $this->getValueType() . '; value is '
-                . $this->toolValueToString($value)
+                . $this->toolValueToString($value),
             );
         }
 

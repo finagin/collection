@@ -21,6 +21,9 @@ use Serializable;
 
 /**
  * `ArrayInterface` provides traversable array functionality to data types.
+ *
+ * @extends ArrayAccess<array-key, mixed>
+ * @extends IteratorAggregate<array-key, mixed>
  */
 interface ArrayInterface extends
     ArrayAccess,
@@ -36,7 +39,7 @@ interface ArrayInterface extends
     /**
      * Returns a native PHP array representation of this array object.
      *
-     * @return mixed[]
+     * @return array<array-key, mixed>
      */
     public function toArray(): array;
 

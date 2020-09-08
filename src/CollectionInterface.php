@@ -113,10 +113,8 @@ interface CollectionInterface extends ArrayInterface
      * @param string $propertyOrMethod The property or method to sort by.
      * @param string $order The sort order for the resulting collection (one of
      *     this interface's `SORT_*` constants).
-     *
-     * @return CollectionInterface<mixed, mixed>
      */
-    public function sort(string $propertyOrMethod, string $order = self::SORT_ASC): self;
+    public function sort(string $propertyOrMethod, string $order = self::SORT_ASC): CollectionInterface;
 
     /**
      * Filter out items of the collection which don't match the criteria of
@@ -128,11 +126,9 @@ interface CollectionInterface extends ArrayInterface
      * See the {@link http://php.net/manual/en/function.array-filter.php PHP array_filter() documentation}
      * for examples of how the `$callback` parameter works.
      *
-     * @param callable $callback A callable to use for filtering elements.
-     *
-     * @return CollectionInterface<mixed, mixed>
+     * @param callable(mixed):bool $callback
      */
-    public function filter(callable $callback): self;
+    public function filter(callable $callback): CollectionInterface;
 
     /**
      * Create a new collection where items match the criteria of given callback.
@@ -142,10 +138,8 @@ interface CollectionInterface extends ArrayInterface
      *
      * @param string $propertyOrMethod The property or method to evaluate.
      * @param mixed  $value The value to match.
-     *
-     * @return CollectionInterface<mixed, mixed>
      */
-    public function where(string $propertyOrMethod, $value): self;
+    public function where(string $propertyOrMethod, $value): CollectionInterface;
 
     /**
      * Apply a given callback method on each item of the collection.
@@ -156,41 +150,24 @@ interface CollectionInterface extends ArrayInterface
      * See the {@link http://php.net/manual/en/function.array-map.php PHP array_map() documentation}
      * for examples of how the `$callback` parameter works.
      *
-     * @param callable $callback A callable to apply to each item of the
-     *     collection.
-     *
-     * @return CollectionInterface<mixed, mixed>
+     * @param callable(mixed):mixed $callback
      */
-    public function map(callable $callback): self;
+    public function map(callable $callback): CollectionInterface;
 
     /**
      * Create a new collection with divergent items between current and given
      * collection.
-     *
-     * @param CollectionInterface<mixed, mixed> $other The collection to check for divergent
-     *     items.
-     *
-     * @return CollectionInterface<mixed, mixed>
      */
-    public function diff(CollectionInterface $other): self;
+    public function diff(CollectionInterface $other): CollectionInterface;
 
     /**
      * Create a new collection with intersecting item between current and given
      * collection.
-     *
-     * @param CollectionInterface<mixed, mixed> $other The collection to check for
-     *     intersecting items.
-     *
-     * @return CollectionInterface<mixed, mixed>
      */
-    public function intersect(CollectionInterface $other): self;
+    public function intersect(CollectionInterface $other): CollectionInterface;
 
     /**
      * Merge current items and items of given collections into a new one.
-     *
-     * @param CollectionInterface<mixed, mixed> ...$collections The collections to merge.
-     *
-     * @return CollectionInterface<mixed, mixed>
      */
-    public function merge(CollectionInterface ...$collections): self;
+    public function merge(CollectionInterface ...$collections): CollectionInterface;
 }

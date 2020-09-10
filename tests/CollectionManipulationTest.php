@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ramsey\Collection\Test;
 
+use Ramsey\Collection\AbstractCollection;
 use Ramsey\Collection\Collection;
 use Ramsey\Collection\Exception\CollectionMismatchException;
 use Ramsey\Collection\Exception\InvalidSortOrderException;
@@ -11,6 +12,8 @@ use Ramsey\Collection\Exception\ValueExtractionException;
 use Ramsey\Collection\Test\Mock\Bar;
 use Ramsey\Collection\Test\Mock\BarCollection;
 use Ramsey\Collection\Test\Mock\FooCollection;
+
+use function strtoupper;
 
 /**
  * This test collection will test all manipulation methods on Collection.
@@ -360,5 +363,20 @@ class CollectionManipulationTest extends TestCase
         $diffCollection = $barCollection1->merge($barCollection2);
 
         $this->assertEquals([$bar1, $bar2], $diffCollection->toArray());
+    }
+
+    public function testMapConvertsValues(): void
+    {
+        $stringCollection = new class (['foo', 'bar']) extends AbstractCollection {
+            public function getType(): string
+            {
+                return 'string';
+            }
+        };
+
+        $upperStringCollection = $stringCollection->map(fn ($item) => strtoupper($item));
+
+        $this->assertNotSame($stringCollection, $upperStringCollection);
+        $this->assertSame(['FOO', 'BAR'], $upperStringCollection->toArray());
     }
 }

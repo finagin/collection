@@ -132,6 +132,7 @@ jobs:
           - "8.0"
         operating-system:
           - "ubuntu-latest"
+        experimental: [false]
         include:
           - php: "8.0"
             composer-options: "--ignore-platform-reqs"
